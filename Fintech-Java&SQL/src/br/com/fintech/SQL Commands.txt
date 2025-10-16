@@ -1,0 +1,32 @@
+-- Creation SQL Commands
+CREATE TABLE Conta (
+    ID_Conta INTEGER PRIMARY KEY,
+    Tipo_Conta VARCHAR2(30),
+    Saldo DECIMAL(15,2),
+    Status VARCHAR2(20),
+    Data_Abertura DATE,
+    Usuario_ID_Usuario INTEGER
+);
+
+CREATE TABLE Pagamento (
+    ID_Pagamento INTEGER PRIMARY KEY,
+    ID_Conta INTEGER,
+    Tipo_Pagamento VARCHAR2(30),
+    Valor DECIMAL(15,2),
+    Data_Pagamento DATE,
+    Descricao VARCHAR2(200),
+    Status VARCHAR2(20),
+    FOREIGN KEY (ID_Conta) REFERENCES Conta(ID_Conta)
+);
+
+
+-- Preparation & Cleaning Commands
+
+TRUNCATE TABLE CONTA;
+
+TRUNCATE TABLE USUARIO;
+
+INSERT INTO USUARIO (ID_USUARIO, NOME, CPF, EMAIL, TELEFONE, ENDERECO, DATA_CADASTRO)
+VALUES (1, 'User test', '00000', 'teste@fintech.com.br', '41000000000', 'Rua Avenida', SYSDATE);
+
+COMMIT;
