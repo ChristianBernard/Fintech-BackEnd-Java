@@ -8,10 +8,11 @@ public class ConnectionFactory {
 
     
     private static final String URL = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
-    private static final String USER = "RM562070";
-    private static final String PASS = "290307";
+    private static final String USER = "XXXXXXX";
+    private static final String PASS = "XXXXXX";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);
     }
+
 }
